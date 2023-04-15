@@ -1,27 +1,14 @@
-let celsius = document.getElementById("celsius");
-let fahrenheit = document.getElementById("fahrenheit");
-let kelvin = document.getElementById("kelvin");
-
-celsius.oninput = function () {
-  let f = (parseFloat(celsius.value) * 9) / 5 + 32;
-  fahrenheit.value = parseFloat(f.toFixed(2));
-
-  let k = parseFloat(celsius.value) + 273.15;
-  kelvin.value = parseFloat(k.toFixed(2));
-};
-
-fahrenheit.oninput = function () {
-  let c = ((parseFloat(fahrenheit.value) - 32) * 5) / 9;
-  celsius.value = parseFloat(c.toFixed(2));
-
-  let k = ((parseFloat(fahrenheit.value) - 32) * 5) / 9 + 273.15;
-  kelvin.value = parseFloat(k.toFixed(2));
-};
-
-kelvin.oninput = function () {
-  let f = ((parseFloat(kelvin.value) - 273.15) * 9) / 5 + 32;
-  fahrenheit.value = parseFloat(f.toFixed(2));
-
-  let c = parseFloat(kelvin.value) - 273.15;
-  celsius.value = parseFloat(c.toFixed(2));
-};
+console.log("hi...");
+document.querySelector(".cross").style.display = "none";
+document.querySelector(".hamburger").addEventListener("click", () => {
+  document.querySelector(".sidebar").classList.toggle("sidebargo");
+  if (document.querySelector(".sidebar").classList.contains("sidebargo")) {
+    document.querySelector(".ham").style.display = "inline";
+    document.querySelector(".cross").style.display = "none";
+  } else {
+    document.querySelector(".ham").style.display = "none";
+    setTimeout(() => {
+      document.querySelector(".cross").style.display = "inline";
+    }, 300);
+  }
+});
